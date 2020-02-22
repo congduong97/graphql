@@ -35,9 +35,9 @@ const typeDefs = `
     }
 
     input CreateUserInput{
+      id:ID!
       name:String!
       email:String!
-      age:Int
     }
 
     type User {
@@ -79,7 +79,7 @@ const resolvers = {
     createUser: (parent, args, context, info) => {
       console.log(args);
       return {
-        id: "1",
+        id: args.data.id,
         name: args.data.name,
         email: args.data.email
       };
